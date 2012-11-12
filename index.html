@@ -16,11 +16,11 @@
 
 <body style="height:500px;">
 <h1 class="url-jingle">Stackable.info</h1>
-<p class="tag-line">"Nested in a stack of information."</p>
+<p class="tag-line">"Nested in a stack of information, stackable.info nurtures text into well-formed content."</p>
 <p>Stackable.info is a rich text editor that clearly displays the structure of your content.<br/> 
-The programmer defines the allowable <a href="#structured_content" >HTML structures</a> and how they may be nested.<br/>
-The editors are easily able to structure their content using any allowable HTML structures. The editing environment only offers acceptable structures at any given nesting level, and always enforces well formed content.<br/>
-The benefit is that Editors are given the freedom to concentrate on creating content, without having to be concerned about HTML structural continuity or validity.<br/>
+A programmer defines the allowable <a href="#structured_content" >HTML structures</a> and how they may be nested.<br/>
+An editor is easily able to structure their content using any allowable markup (HTML) structures. The editing environment then offers only acceptable structures at any given nesting level, and always enforces well-formed content.<br/>
+The benefit is that Editors are given the freedom to concentrate on creating content, without having to be concerned about markup structural continuity or validity.<br/>
 </p>
 
 <h2>Demonstration</h2>
@@ -57,26 +57,31 @@ tags or containers for your content (represented as nodes), and the relationship
 
 
 <h2 class="topic not_wymsiwyg">Not WYSIWYG</h1>
-<p class="topic">A long time ago, In an effort to spend more time at the beach, people invented "What You See Is What You Get" editor user interfaces.
-But while the programmers were at the beach, users were creating unintended "out-of-Bounds" HTML structures, the likes of: lists inside of paragraphs; paragraphs inside of span tags; and paragraphs inside of paragraphs.
-And since this was before the time of cellphone towers near beaches, the support calls piled up. The problem was that the structure of the content was a 
-complete mystery (and completely invisible) to the person editing, and when they selected some section of text, they had no indication that their selection might be in a list or a paragraph, or a bit of both. 
-They just wanted to move it down lower or copy it to another section, so they did, 
-and that is when the trouble started, copied tag fragments and all. The HTML code that a WYSIWYG editor produces is often convoluted, and continues to degrade as successive editors
-blindly select HTML structures and contort them into what they would like to see. But without knowing any better, they were allowed to make html that got further from what they intended.
-Sometimes trapping a user into a state of "What You See Is What You Are Stuck With."</p>
+<p class="topic">The "What You See Is What You Get" editor has been so widely used over the last decades, 
+that editors have come to expect it, but unintended side effects of its use are lurking in the unseen markup. 
+The truth about WYSIWYG editors is that they produce unintended or completely "out-of-Bounds" HTML structures, the likes of: lists inside of paragraphs; paragraphs inside of span tags; etc.
+
+ The problem is that the structure of the content is a 
+complete mystery (and largely invisible) to the person editing. For instance, the section of text in a WYSIWYG editor gives no indication of what markup structures are involved. 
+As a result, moving or copying content may cause tag fragments to propagate, resulting in convoluted markup that degrades as successive editors edit content.
+As markup gets further from what is intended, WYSIWYG editors
+may even trap a user into a state of "What You See Is What You Are Stuck With."
+</p>
 <p>
-Okay, so not all WYSIWYG editors are bad, but mixing of content and style together is never good. Separation of content and style is what Web developers have been trying to do for years. So, if you're goal is to separate these concerns and enforce your definition of acceptable nested structures, then stackable.js may help.
+It is now considered a disservice to allow an editor to blindly alter markup structures and inadvertently contort content based only on the markup rendering. 
+</p>
+<p>
+Although, not all WYSIWYG editors are bad, mixing of content and style together is not ideal. Separation of content and style is what Web developers have been trying to achieve for years. Separating these concerns and enforcing (your definition of) acceptable nested structures, is what stackable.js may be used for.
 </p>
 
 <h2 class="topic FIS">Freedom Inside Structure</h1>
-<p class="topic"> All HTML editing environmets have the 
-common goal of protecting the user from the exacting details of correctly coding HTML by hand. 
+<p class="topic"> All HTML editing environments have the 
+common goal of protecting the user from the exacting details of correctly coding markup by hand. 
 And the less training that you have to do, the better. Coding Markup is always a distraction from the crafting good content, so unless 
 they coders at heart, teaching markup is outside of their core task.
 </p>
 <p>So the Stackable.info way is to provide a little structure (or a lot) and let the content flow (freely) within that structure. 
-After all, since the Wild West and WYSIWYG editors did not turn out to be as romantic as they claim, what we need to get back to is: more time at the beach.
+After all, WYSIWYG editors have had their decade and now people are ready to handle a UX that clearly displays the structure that coded markup imposes. 
 </p>
 
 </body>
