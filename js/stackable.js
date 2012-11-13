@@ -55,6 +55,13 @@
                 if (_.indexOf(poss, "text") >= 0) {
                     //alert("from tag: "+ tg + " to text: "+ $(this).text());
                     // may need to wrap this text in a tag to edit it...
+                    $(this).parent().one("mousedown", function() {
+                        var text = $(this).text();
+                        $(this).empty();
+                        $(this).append('<input type="text" value="' + text + '"/><button>save</button>');
+                        return false;
+                    });
+                    
 	            }
                 else  {
                     // this might just be white space?, but otherwise it is not in the graph
@@ -74,7 +81,7 @@
                     tg_p.push(tag);
                     $(this).attr("style", style_map[tag]);
                     $(this).data("path", tg_p.join(">"));
-                    $(this).mouseover(function() {
+                    $(this).hover(function() {
                         $(this).css({"background-color": "#EEEEEE"});
                         var offset = $(this).offset();
                         var top = offset.top;
@@ -82,8 +89,8 @@
                         $('#stackable_control_panel').html($(this).data("path")).show();
                         $('#stackable_control_panel').css({"position": "absolute", "top":top, "left":left, "width":"350px", "height":"50px"});
                         return false;
-                    });
-                    $(this).mouseout(function() {
+                    }, 
+                    function() {
                         $(this).css("background-color", "#FFFFFF");
                         //$('#stackable_control_panel').hide();
                     });
