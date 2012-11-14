@@ -60,13 +60,8 @@
                 if (_.indexOf(poss, "text") >= 0) {
                     //alert("from tag: "+ tg + " to text: "+ $(this).text());
                     // may need to wrap this text in a tag to edit it...
-                    $(this).parent().one("mousedown", function() {
-                        $(current_parse_root).find("*").each(function() {this.contentEditable = false;});
-                        var text = $(this).text();
-                        $(this).data("previous_text", text);
-                        //$(this).append('<input type="text" value="' + text + '"/><button>save</button>');
+                    $(this).parent().each(function() {
                         this.contentEditable = true;
-                        return false;
                     });
                     
 	            }
