@@ -2,6 +2,7 @@
 (function($, g){
     	var config = {"logging":{"status":"off"}};
 	var $log_element = null;
+    var current_parse_root = null;
 	var tag_graph = {nodes:[{"id": "start"}, {"id": "div"}, {"id": "ul"}, {"id": "ol"}, {"id": "li"}, {"id": "h#"}, {"id": "p"}, {"id": "text"}, {"id": "em"}], 
 	    edges:[["start", "div", "tag_path"], ["start", "ul", "tag_path"], 
 	    ["start", "ol", "tag_path"], ["start", "h#", "tag_path"], ["start", "p", "tag_path"],
@@ -43,8 +44,12 @@
 	}
 	
 	function parse(it, tg, tg_path) {
+        current_parse_root = it;
+        parse_aux(it, tg, tg_path);
+    }
+    
+	function parse_aux(it, tg, tg_path) {
 	    //alert("parse "+$(it).html());
-	    
 	    // dig down through the tags in this HTML fragment... checking to see if it conforms to the tag_graph
 	    $(it).contents().each(function() {
 	        var tg_p = _.clone(tg_path);
@@ -56,9 +61,11 @@
                     //alert("from tag: "+ tg + " to text: "+ $(this).text());
                     // may need to wrap this text in a tag to edit it...
                     $(this).parent().one("mousedown", function() {
+                        $(current_parse_root).find("*").each(function() {this.contentEditable = false;});
                         var text = $(this).text();
-                        $(this).empty();
-                        $(this).append('<input type="text" value="' + text + '"/><button>save</button>');
+                        $(this).data("previous_text", text);
+                        //$(this).append('<input type="text" value="' + text + '"/><button>save</button>');
+                        this.contentEditable = true;
                         return false;
                     });
                     
