@@ -1,10 +1,14 @@
-stackable.info
+Stackable.info
 ==============
 
-A web based, web content editor, that lands squarely in the WYM camp.
-Objectives are to allow an admin to enforce markup structure on content, and give editors the freedom to create any "in-bounds" content.
+Stackable.info is a web based content editor, that is devoted to the importance of content and its structure.
+Objectives are to allow an admin to enforce markup structure on content, 
+and give editors the freedom and ease to create any content that is within that 
+prescribed structure.
 
-stackable.js is a jquery plugin that also used underscore.js
+Stackable.info is not a WYSIWYG editor, because although a WYSIWYG editor may make content look good, the structure 
+of the content is hidden from the editor, and the markup often takes a circuitous route to achieve the visual 
+arrangement of text.
 
-What You Mean (WYM) is not WYSIWYG, although, you will get what you meant.
-
+The Tact that Stackable.info takes is to be upfront with the editor and enable them to easily create "in-bounds" 
+content. Separation of content style, from its' structure is built into Stackable.info...
