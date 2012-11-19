@@ -10,5 +10,6 @@ Stackable.info is not a WYSIWYG editor, because although a WYSIWYG editor may ma
 of the content is hidden from the editor, and the markup often takes a circuitous route to achieve the visual 
 arrangement of text.
 
-The Tact that Stackable.info takes is to be upfront with the editor and enable them to easily create "in-bounds" 
-content. Separation of content style, from its' structure is built into Stackable.info...
+The Tact that Stackable.info takes is to be upfront with the editor by showing them their content's structure, and 
+enable them to easily create "in-bounds" content. A separation of "style," from "structure" is built into 
+Stackable.info's content editing environment. 
