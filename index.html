@@ -16,29 +16,43 @@
 
 <body style="height:500px;">
 <h1 class="url-jingle">Stackable.info</h1>
-<p class="tag-line">"Nested in a stack of information, stackable.info nurtures text into well-formed content."</p>
-<p>Stackable.info is a rich text editor that clearly displays the structure of your content.<br/> 
-A programmer defines the allowable <a href="#structured_content" >HTML structures</a> and how they may be nested.<br/>
-An editor is easily able to structure their content using any allowable markup (HTML) structures. The editing environment then offers only acceptable structures at any given nesting level, and always enforces well-formed content.<br/>
-The benefit is that Editors are given the freedom to concentrate on creating content, without having to be concerned about markup structural continuity or validity.<br/>
+<p class="tag-line">"Nested in a stack of information, stackable.info 
+wrangles text into well-formed content."</p>
+<p>Stackable.info is a rich text editor that clearly displays the 
+structure of your content.<br/> 
+An administrator defines the allowable 
+<a href="#structured_content" >HTML structures</a> and how they may be 
+nested.<br/>
+An editor is easily able to structure their content using any allowable 
+markup (HTML) structures. The editing environment then offers only 
+acceptable structures at any given nesting level, and always enforces 
+well-formed content.<br/>
+The benefit is that Editors are given the freedom to concentrate on 
+creating content, without having to be concerned about markup 
+structural continuity or validity.<br/>
 </p>
 
-<h2>Demonstration</h2>
+<h2>A Quick Demonstration</h2>
 <div id="demo1">
 <h2>H1 Test</h2>
 <p>paragraph1 text</p>
 ): opps this text is not allowed directly inside a div... :(
 <ul><li>first</li><li>second</li><li>third</li></ul>
 <h2>H2 Test</h2>
-<p>paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 testing paragraph2</p>
-<ul><p>Trouble here, to have this paragraph inside a ul tag</p> and likewise trouble as well to have a "text node" inside this ul tag 
+<p>paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 
+testing paragraph2 testing paragraph2 testing paragraph2 testing 
+paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 
+testing paragraph2 testing paragraph2 testing paragraph2 testing... </p>
+<ul><p>Trouble here, to have this paragraph inside a ul tag</p> 
+and likewise trouble as well to have a "text node" inside this ul tag 
     <li>one</li>
     <li>two
         <ul><li>a</li><li>b</li><li>sea</li></ul>
     </li>
     <li><p>three ... a paragraph inside an li tag is ok</p>
         <ul><li>x</li><li>y</li><li>zzzz</li></ul>
-        <p>and another paragraph inside this li tag is ok... <em>after</em> the list</p>
+        <p>and another paragraph inside this li tag is ok... 
+        <em>after</em> the list</p>
         or just plain text inside the li tag like this...
     </li></ul>
 </div>
@@ -47,41 +61,63 @@ The benefit is that Editors are given the freedom to concentrate on creating con
 
 <!-- end of demo content -->
 <h2 class="topic configuration">Configuration</h1>
-<p class="topic">The way it works can be configured through a graph of tags. The tag graph maps out all allowable combinations of nested tags. The tag graph can allow liberal nesting of tags, or it can limit the nesting of tags that enforces content form.
+<p class="topic">The way it works can be configured through a graph of 
+tags. The tag graph maps out all allowable combinations of nested tags. 
+The tag graph can allow liberal nesting of tags, or it can limit the 
+nesting of tags that enforces content form.
 The way it looks can be changed via CSS.
 </p>
-<p class="topic">The allowable tag graph is a graph structure (of nodes and edges) representing the possible 
-tags or containers for your content (represented as nodes), and the relationships between these tags, which are allowed inside each (represented as edges).
-
+<p class="topic">The allowable tag graph is a graph structure (of nodes 
+and edges) representing the possible tags or containers for your 
+content (represented as nodes), and the relationships between these 
+tags, which are allowed inside each (represented as edges).
 </p>
-
 
 <h2 class="topic not_wymsiwyg">Not WYSIWYG</h1>
-<p class="topic">The "What You See Is What You Get" editor has been so widely used over the last decades, 
-that editors have come to expect it, but unintended side effects of its use are lurking in the unseen markup. 
-The truth about WYSIWYG editors is that they produce unintended or completely "out-of-Bounds" HTML structures, the likes of: lists inside of paragraphs; paragraphs inside of span tags; etc.
+<p class="topic">The "What You See Is What You Get" editor has been so 
+commonly used over the last decades, but the unseen markup produced has 
+been haphazard and unintentionaly sloppy. 
+The truth about WYSIWYG editors is that they produce "out-of-Bounds" 
+HTML structures, the likes of: lists inside of paragraphs; paragraphs 
+inside of span tags; etc.
 
  The problem is that the structure of the content is a 
-complete mystery (and largely invisible) to the person editing. For instance, the section of text in a WYSIWYG editor gives no indication of what markup structures are involved. 
-As a result, moving or copying content may cause tag fragments to propagate, resulting in convoluted markup that degrades as successive editors edit content.
+complete mystery (and largely invisible) to the person editing. For 
+instance, the section of text in a WYSIWYG editor gives no indication 
+of what markup structures are involved. 
+As a result, moving or copying content may cause tag fragments to 
+propagate, resulting in convoluted markup that degrades as successive 
+editors edit content.
 As markup gets further from what is intended, WYSIWYG editors
-may even trap a user into a state of "What You See Is What You Are Stuck With."
+may even trap a user into a state of 
+"What You See Is What You Are Stuck With."
 </p>
 <p>
-It is now considered a disservice to allow an editor to blindly alter markup structures and inadvertently contort content based only on the markup rendering. 
+It is a disservice to allow an editor to blindly alter markup structures
+ and inadvertently contort content based only on the markup rendering. 
 </p>
 <p>
-Although, not all WYSIWYG editors are bad, mixing of content and style together is not ideal. Separation of content and style is what Web developers have been trying to achieve for years. Separating these concerns and enforcing (your definition of) acceptable nested structures, is what stackable.js may be used for.
+Although, not all WYSIWYG editors are bad, mixing of content and style 
+together is not ideal. Separation of content and style is what Web 
+developers have been trying to achieve for years. Separating these 
+concerns and enforcing (your definition of) acceptable nested 
+structures, is what stackable.js may be used for.
 </p>
 
 <h2 class="topic FIS">Freedom Inside Structure</h1>
-<p class="topic"> All HTML editing environments have the 
-common goal of protecting the user from the exacting details of correctly coding markup by hand. 
-And the less training that you have to do, the better. Coding Markup is always a distraction from the crafting good content, so unless 
-they coders at heart, teaching markup is outside of their core task.
+<p class="topic"> All HTML editing environments have the common goal of 
+protecting the user from the exacting details of correctly coding 
+markup by hand. 
+And the less training that you have to do, the better. For a content 
+editor, "Coding Markup" is a distraction from the crafting good 
+content, so unless they coders at heart, teaching markup is outside of 
+their core task.
 </p>
-<p>So the Stackable.info way is to provide a little structure (or a lot) and let the content flow (freely) within that structure. 
-After all, WYSIWYG editors have had their decade and now people are ready to handle a UX that clearly displays the structure that coded markup imposes. 
+<p>The Stackable.info way is to provide the correct amount of structure 
+and to let the content creation flow (freely) within that structure. 
+After all, WYSIWYG editors have had their decade and now people want a 
+UX that clearly displays that previously hidden structure of their 
+content. 
 </p>
 
 </body>
