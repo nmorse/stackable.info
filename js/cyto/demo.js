@@ -36,7 +36,7 @@ $(function(){
 		}
 	}
 	
-  $('#demo').cytoscape({
+  $('#graph_vis').cytoscape({
     elements: { // TODO specify some elements like http://cytoscapeweb.cytoscape.org/demos/simple
       nodes: demoNodes,
       edges: demoEdges
