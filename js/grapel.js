@@ -39,7 +39,8 @@
     },
     get_node: function(arg) {
       var req = _.extend({id:"start"}, arg);
-      return this.get_node_info(arg.id);
+      var index_obj = this.get_node_info(arg.id);
+      return g.nodes[index_obj.index];
     },
     get_linked_nodes: function(arg, type, opt) {
       var req = _.extend({id:"start"}, arg);
@@ -47,6 +48,12 @@
       var node = this.get_node_info(arg.id);
       var outedges = _.filter(g.edges, function(o) {return o[0] === node.id && ((_.isUndefined(o[2]) &&  filter_type === '') || o[2] === filter_type);});
       return _.map(outedges, function(edge) { return edge[1]});
+    },
+    get_nodes: function() {
+      return g.nodes;
+    },
+    get_edges: function() {
+      return g.edges;
     }
   };
 })(_);

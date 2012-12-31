@@ -1,41 +1,22 @@
 $(function(){
-
-	var nodeCount = 6;
-	var edgeCount = 12;
-	
-	var demoNodes = [
-      {data: {id: "n0", weight: 10}, position:[20, 20]},
-      {data: {id: "n1", weight: 10}, position:[20, 40]},
-      {data: {id: "n2", weight: 10}, position:[40, 20]},
-      {data: {id: "n3", weight: 10}, position:[40, 40]},
-      {data: {id: "n4", weight: 10}, position:[20, 60]},
-      {data: {id: "n5", weight: 10}, position:[40, 60]}
-        ];
+	var raw_nodes = grapel.get_nodes();
+	var raw_edges = grapel.get_edges();
+	var demoNodes = [];
 	var demoEdges = [];
-	
-	
-	for (var i = 0; i < nodeCount; i++) {
-		demoEdges.push({
-			data: {
-				id: "e" + (i * 2),
-				source: "n" + ((i + 1) >= nodeCount ? i + 1 - nodeCount : i + 1),
-				target: "n" + i,
-				weight: 30
-			}
-		});
-		
-		if (i % 2 == 0) {
-			demoEdges.push({
-				data: {
-					id: "e" + (i * 2 + 1),
-					target: "n" + i,
-					source: "n" + ((i + 3) >= nodeCount ? i + 3 - nodeCount : i + 3),
-					weight: 21
-				}
-			});
-		}
-	}
-	
+	var i, o;
+	for (i = 0; i < raw_nodes.length; i++) {
+        o = {data:raw_nodes[i]};
+        if (!raw_nodes[i].view) {
+            o.position = [((i/4)+1)*20, ((i%4)+1)*20];
+        }
+        demoNodes.push(o);
+    }
+    for (i = 0; i < raw_edges.length; i++) {
+        o = {data:{id:"e" + (i * 2), source: raw_edges[i][0], target: raw_edges[i][1], weight: 30}};
+        demoEdges.push(o);
+    }
+
+
   $('#graph_vis').cytoscape({
     elements: { // TODO specify some elements like http://cytoscapeweb.cytoscape.org/demos/simple
       nodes: demoNodes,
@@ -50,7 +31,7 @@ $(function(){
 				"shape": "data(shape)",
 				"border-width": 3,
 				"background-color": "#DDD",
-				"border-color": "#555",
+				"border-color": "#555"
 			})
 		.selector("edge")
 			.css({
@@ -63,6 +44,7 @@ $(function(){
 			.css({
 				"background-color": "#000",
 				"line-color": "#000",
+                "border-color": "#955",
 				"source-arrow-color": "#000",
 				"target-arrow-color": "#000"
 			})

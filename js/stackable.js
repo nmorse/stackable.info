@@ -3,14 +3,12 @@
     	var config = {"logging":{"status":"off"}};
 	var $log_element = null;
     var current_parse_root = null;
-	var tag_graph = {nodes:[{"id": "start"}, {"id": "div"}, {"id": "ul"}, {"id": "ol"}, {"id": "li"}, {"id": "h#"}, {"id": "p"}, {"id": "text"}, {"id": "em"}], 
-	    edges:[["start", "div", "tag_path"], ["start", "ul", "tag_path"], 
-	    ["start", "ol", "tag_path"], ["start", "h#", "tag_path"], ["start", "p", "tag_path"],
-	    ["div", "h#", "tag_path"], ["div", "p", "tag_path"], ["div", "ul", "tag_path"], 
+	var tag_graph = {nodes:[{"id": "div", "start":true}, {"id": "ul", "start":true}, {"id": "ol", "start":true}, {"id": "li"}, {"id": "h#", "start":true}, {"id": "p", "start":true}, {"id": "text"}, {"id": "em"}], 
+	    edges:[["div", "h#", "tag_path"], ["div", "p", "tag_path"], ["div", "ul", "tag_path"], 
 	    ["div", "ol", "tag_path"], ["div", "div", "tag_path"],
 	    ["h#", "text", "tag_path"], ["p", "text", "tag_path"], ["ul", "li", "tag_path"], 
-	    ["ol", "li", "tag_path"], ["li", "h#", "tag_path"], ["h#", "text", "tag_path"], ["li", "p", "tag_path"], 
-	    ["li", "ul", "tag_path"], ["li", "div", "tag_path"], ["li", "text", "tag_path"],
+	    ["ol", "li", "tag_path"], ["li", "p", "tag_path"], 
+	    ["li", "ul", "tag_path"], ["li", "ol", "tag_path"], ["li", "text", "tag_path"], ["li", "em", "tag_path"],
 	    ["p", "em", "tag_path"], ["em", "text", "tag_path"]]};
 	    var style_map = {"p": "border: solid gray 1px; margin: 2px; padding: 2px; background-color: #FFFFFF;",
 	                   "div": "border: dashed green 1px; padding: 2px; width: 600px; background-color: #FFFFFF;",
@@ -28,12 +26,13 @@
 		}
 		
 		g.load(tag_graph);
+        alert("test " + JSON.stringify(g.get_node({id:"div"})));
 		
 		this.each(function() {
 		    var tag = this.nodeName.toLowerCase();
 		    $(this).attr("style", style_map[tag]);
 		    $().appendTo("body");
-			parse(this, "start", [tag]);
+			parse(this, tag, []);
 		});
 		return this;
 	};
@@ -45,7 +44,12 @@
 	
 	function parse(it, tg, tg_path) {
         current_parse_root = it;
-        parse_aux(it, tg, tg_path);
+        if (tg_path.length > 0 || g.get_node({id:tg}).start) {
+            parse_aux(it, tg, tg_path);
+        }
+        else {
+            alert("not able to start parsing the stackable tag "+tg + " " + JSON.stringify(g.get_node({id:tg})));
+        }
     }
     
 	function parse_aux(it, tg, tg_path) {
