@@ -26,7 +26,6 @@
 		}
 		
 		g.load(tag_graph);
-        alert("test " + JSON.stringify(g.get_node({id:"div"})));
 		
 		this.each(function() {
 		    var tag = this.nodeName.toLowerCase();
@@ -48,7 +47,7 @@
             parse_aux(it, tg, tg_path);
         }
         else {
-            alert("not able to start parsing the stackable tag "+tg + " " + JSON.stringify(g.get_node({id:tg})));
+            alert("Unable to 'start' parsing form this tag: '" + tg + "' is not stackable! " + JSON.stringify(g.get_node({id:tg})));
         }
     }
     
