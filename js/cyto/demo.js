@@ -18,12 +18,10 @@ $(function(){
 
 
   $('#graph_vis').cytoscape({
-    elements: { // TODO specify some elements like http://cytoscapeweb.cytoscape.org/demos/simple
+    elements: { 
       nodes: demoNodes,
       edges: demoEdges
     },
-
-	// TODO specify a nice style like http://cytoscapeweb.cytoscape.org/demos/simple
     style: cytoscape.stylesheet()
       .selector("node")
 			.css({
