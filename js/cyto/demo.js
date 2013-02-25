@@ -7,7 +7,7 @@ $(function(){
 	for (i = 0; i < raw_nodes.length; i++) {
         o = {data:raw_nodes[i]};
         if (!raw_nodes[i].view) {
-            o.position = [((i/4)+1)*20, ((i%4)+1)*20];
+            o.position = [(i/4)*4, (i%4)*4];
         }
         demoNodes.push(o);
     }
@@ -17,7 +17,7 @@ $(function(){
     }
 
 
-  $('#graph_vis').cytoscape({
+    $('#graph_vis').cytoscape({
     elements: { 
       nodes: demoNodes,
       edges: demoEdges
@@ -65,13 +65,16 @@ $(function(){
 				"width": 15,
 				"height": 15
 			})
+    , ready: function(){
+      	var nodeCount = this.nodes().length;
+        //alert(nodeCount);
+        this.on('position', 'node', function(evt){
+          var node = this;
+          $('#graph_out').text( 'renderedPosition:' + JSON.stringify(node.renderedPosition()) + ', node.json() --> ' + JSON.stringify(node.json()));
+          //node.position(node.renderedPosition());
+        });
+      }
+    })
+    
 
-    
-    
-    
-		
-  });
-  
-  
-  
 });
