@@ -4,11 +4,9 @@ $(function(){
 	var demoNodes = [];
 	var demoEdges = [];
 	var i, o;
+    var g;
 	for (i = 0; i < raw_nodes.length; i++) {
         o = {data:raw_nodes[i]};
-        if (!raw_nodes[i].view) {
-            o.position = [(i/4)*4, (i%4)*4];
-        }
         demoNodes.push(o);
     }
     for (i = 0; i < raw_edges.length; i++) {
@@ -66,15 +64,20 @@ $(function(){
 				"height": 15
 			})
     , ready: function(){
-      	var nodeCount = this.nodes().length;
-        //alert(nodeCount);
-        this.on('position', 'node', function(evt){
-          var node = this;
-          $('#graph_out').text( 'renderedPosition:' + JSON.stringify(node.renderedPosition()) + ', node.json() --> ' + JSON.stringify(node.json()));
-          //node.position(node.renderedPosition());
-        });
+        var nodeCount, nodes;
+        var i, pos, data;
+        nodes = g.nodes();
+        nodeCount = nodes.length;
+        for (i = 0; i < nodeCount; i++) {
+            data = nodes[i].data();
+            if (data && data.view && data.view.position) {
+                pos = data.view.position;
+                //alert(pos.x + " " + pos.y);
+                nodes[i].position({x: pos.x, y: pos.y});
+            }
+        }
       }
-    })
-    
+    });
+    g = $("#graph_vis").cytoscape("get");
 
 });

@@ -3,13 +3,169 @@
     	var config = {"logging":{"status":"off"}};
 	var $log_element = null;
     var current_parse_root = null;
-	var tag_graph = {nodes:[{"id": "div", "start":true}, {"id": "ul", "start":true}, {"id": "ol", "start":true}, {"id": "li"}, {"id": "h#", "start":true}, {"id": "p", "start":true}, {"id": "text"}, {"id": "em"}], 
-	    edges:[["div", "h#", "tag_path"], ["div", "p", "tag_path"], ["div", "ul", "tag_path"], 
-	    ["div", "ol", "tag_path"], ["div", "div", "tag_path"],
-	    ["h#", "text", "tag_path"], ["p", "text", "tag_path"], ["ul", "li", "tag_path"], 
-	    ["ol", "li", "tag_path"], ["li", "p", "tag_path"], 
-	    ["li", "ul", "tag_path"], ["li", "ol", "tag_path"], ["li", "text", "tag_path"], ["li", "em", "tag_path"],
-	    ["p", "em", "tag_path"], ["em", "text", "tag_path"]]};
+	var tag_graph = {
+     "nodes": [
+      {
+       "id": "div",
+       "start": true,
+       "view": {
+        "position": {
+         "x": 62,
+         "y": 71
+        }
+       }
+      },
+      {
+       "id": "ul",
+       "start": true,
+       "view": {
+        "position": {
+         "x": 169,
+         "y": 113
+        }
+       }
+      },
+      {
+       "id": "ol",
+       "start": true,
+       "view": {
+        "position": {
+         "x": 189,
+         "y": 42
+        }
+       }
+      },
+      {
+       "id": "li",
+       "view": {
+        "position": {
+         "x": 332,
+         "y": 71
+        }
+       }
+      },
+      {
+       "id": "h#",
+       "start": true,
+       "view": {
+        "position": {
+         "x": 62,
+         "y": 242
+        }
+       }
+      },
+      {
+       "id": "p",
+       "start": true,
+       "view": {
+        "position": {
+         "x": 125,
+         "y": 181
+        }
+       }
+      },
+      {
+       "id": "text",
+       "view": {
+        "position": {
+         "x": 332,
+         "y": 242
+        }
+       }
+      },
+      {
+       "id": "em",
+       "view": {
+        "position": {
+         "x": 258,
+         "y": 181
+        }
+       }
+      }
+     ],
+     "edges": [
+      [
+       "div",
+       "h#",
+       "tag_path"
+      ],
+      [
+       "div",
+       "p",
+       "tag_path"
+      ],
+      [
+       "div",
+       "ul",
+       "tag_path"
+      ],
+      [
+       "div",
+       "ol",
+       "tag_path"
+      ],
+      [
+       "div",
+       "div",
+       "tag_path"
+      ],
+      [
+       "h#",
+       "text",
+       "tag_path"
+      ],
+      [
+       "p",
+       "text",
+       "tag_path"
+      ],
+      [
+       "ul",
+       "li",
+       "tag_path"
+      ],
+      [
+       "ol",
+       "li",
+       "tag_path"
+      ],
+      [
+       "li",
+       "p",
+       "tag_path"
+      ],
+      [
+       "li",
+       "ul",
+       "tag_path"
+      ],
+      [
+       "li",
+       "ol",
+       "tag_path"
+      ],
+      [
+       "li",
+       "text",
+       "tag_path"
+      ],
+      [
+       "li",
+       "em",
+       "tag_path"
+      ],
+      [
+       "p",
+       "em",
+       "tag_path"
+      ],
+      [
+       "em",
+       "text",
+       "tag_path"
+      ]
+     ]
+    };
 	    var style_map = {"p": "border: solid gray 1px; margin: 2px; padding: 2px; background-color: #FFFFFF;",
 	                   "div": "border: dashed green 1px; padding: 2px; width: 600px; background-color: #FFFFFF;",
 	                   "ul": "border: solid yellow 1px; margin: 2px; padding: 2px 2px 2px 20px; background-color: #FFFFFF;",
