@@ -227,8 +227,12 @@
                 else  {
                     // this might just be white space?, but otherwise it is not in the graph
                     if (!is_whitespace($(this).text())) {
-                        $(this).wrap('<span style="color: red;"></span>');
-                        $(this).parent().prepend("Warning! Quarantined text node at "+tg_p.join(":>")+": ");
+                        alert(tg+" "+this.nodeName);
+                        $(this).text($(this).text());
+                        //$(this).remove();
+                        
+                        // //$(this).wrap('<span style="color: red;"></span>');
+                        // //$(this).parent().prepend("Warning! Quarantined text node at "+tg_p.join(":>")+": ");
                         //alert("parse error: text content inside a "+tg+" tag. Path not found in the tag graph.");
                         //$(this).remove();
                     }
@@ -258,16 +262,16 @@
                         //$('#add_p_above').off('click');
                         $.each(poss, function(i, o) {
                             if (o !== 'h#') {
-                                opt_menu_a += ' <a id="add_'+o+'_above" data-tag="'+o+'">'+o+'</a>';
-                                opt_menu_b += ' <a id="add_'+o+'_below" data-tag="'+o+'">'+o+'</a>';
+                                opt_menu_a += ' <button id="add_'+o+'_above" data-tag="'+o+'" type="button" class="btn btn-primary">'+o+'</button>';
+                                opt_menu_b += ' <button id="add_'+o+'_below" data-tag="'+o+'" type="button" class="btn btn-primary">'+o+'</button>';
                             }
                         });
                         $.each(in_poss, function(i, o) {
                             if (o !== 'h#') {
-                                opt_menu_in += ' <a id="add_'+o+'_in" data-tag="'+o+'">'+o+'</a>';
+                                opt_menu_in += ' <button id="add_'+o+'_in" data-tag="'+o+'" type="button" class="btn btn-primary">'+o+'</button>';
                             }
                         });
-                        $('#stackable_control_panel').html('<ul><li>add a new Tag ['+opt_menu_a+'] above</li><li><a id="remove_box">Remove this &lt;'+tag+'&gt; Tag!</a>  or add into this box '+opt_menu_in+'</li><li >add ['+opt_menu_b+'] box below</li></ul>').show();
+                        $('#stackable_control_panel').html('<ul><li>add a new Tag ['+opt_menu_a+'] above</li><li><button id="remove_box" type="button" class="btn btn-primary">Remove this &lt;'+tag+'&gt; Tag!</button>  or add into this box '+opt_menu_in+'</li><li >add ['+opt_menu_b+'] box below</li></ul>').show();
                         $('#stackable_control_panel').css({"position": "absolute", "top":top, "left":left, "width":"350px"});
                         $('#remove_box').on('click', function() { 
                             ele.remove();
@@ -308,9 +312,14 @@
                     });
                     parse(this, lookup_tag, tg_p);
                 }
-                else  { 
+                else  {
+                    alert(tg+" to Tag "+this.nodeName);
+                    $(this).text($(this).text());
                     $(this).wrap('<span style="color: red;"></span>');
-                    $(this).parent().prepend("Warning! Quarantined &lt;"+tag+"/&gt; tag: ");
+                    //$(this).remove();
+                    
+                    // //$(this).wrap('<span style="color: red;"></span>');
+                    // //$(this).parent().prepend("Warning! Quarantined &lt;"+tag+"/&gt; tag: ");
                     //alert("parse error: text content inside a "+tg+" tag. Path not found in the tag graph.");
                     //alert("not able to parse HTML stucture <"+tg+"/> -> <"+tag+"/> against the tag graph");
                 }

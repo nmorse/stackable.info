@@ -17,14 +17,6 @@
     </script>
     <script src="js/cyto/demo.js"></script>
     <link href="/stackable/css/stackable.css" rel="stylesheet" media="screen">
-    <style>
-    #graph_vis {
-        height: 300px;
-        width: 400px;
-        border: 1px solid #ddd;
-        margin: 1em 0;
-    }
-    </style>
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -78,23 +70,21 @@ and likewise trouble as well to have a "text node" inside this ul tag
 </div>
 <!-- end of demo content -->
 
-            <div class="row">
-              <div class="span4">4</div>
-              <div class="span4">4</div>
-              <div class="span4">4</div>
-            </div>
-            <div class="row">
-              <div class="span4">4</div>
-              <div class="span8">8</div>
-            </div>
-            <div class="row">
-              <div class="span6">6</div>
-              <div class="span6">6</div>
-            </div>
-            <div class="row">
-              <div class="span12">12</div>
-            </div>
-          
+    <div class="row">
+      <div class="span3">
+        <div id="ui_mode_1" class="btn-group ui_mode" data-toggle="buttons-radio">
+          <button id="save" type="button" class="btn btn-primary">Save</button>
+          <button id="load" type="button" class="btn btn-primary">Load</button>
+          <button id="hsare" type="button" class="btn btn-primary">Share</button>
+        </div>
+      </div>
+      <div class="span3">
+        <div id="ui_mode_2" class="btn-group ui_mode" data-toggle="buttons-radio">
+          <button id="edit" type="button" class="btn btn-primary active">Edit</button>
+          <button id="run" type="button" class="btn btn-primary">Run</button>
+        </div>
+      </div>
+    </div>
 </div>
 <h2 class="topic configuration">Configuration</h1>
 <p class="topic">The way it works can be configured through a graph of 
