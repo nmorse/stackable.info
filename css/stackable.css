@@ -1,6 +1,7 @@
 #graph_vis {
     height: 300px;
     width: 400px;
+    background-color: #f9f7ed;
     border: 1px solid #ddd;
     margin: 1em 0;
 }
