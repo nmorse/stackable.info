@@ -26,36 +26,39 @@ $(function(){
 				"content": "data(id)",
 				"shape": "data(shape)",
 				"border-width": 3,
-				"background-color": "#DDD",
-				"border-color": "#555"
+				"background-color": "#f9dc7a",
+				"border-color": "#d3b347",
+                "color": "#c4a987"
 			})
 		.selector("edge")
 			.css({
 				"width": "mapData(weight, 0, 100, 1, 4)",
 				"target-arrow-shape": "triangle",
+				"target-arrow-color": "#f2c641",
 				"source-arrow-shape": "circle",
-				"line-color": "#444",
+				"source-arrow-color": "#f2c641",
+				"line-color": "#f2dc93",
 			})
 		.selector(":selected")
 			.css({
-				"background-color": "#000",
-				"line-color": "#000",
-                "border-color": "#955",
-				"source-arrow-color": "#000",
-				"target-arrow-color": "#000"
+				"background-color": "#d1280e",
+				"line-color": "#a82714",
+                "border-color": "#a82714",
+				"source-arrow-color": "#d1280e",
+				"target-arrow-color": "#d1280e"
 			})
 		.selector(".ui-cytoscape-edgehandles-source")
 			.css({
-				"border-color": "#5CC2ED",
+				"border-color": "#f2c641",
 				"border-width": 3
 			})
 		.selector(".ui-cytoscape-edgehandles-target, node.ui-cytoscape-edgehandles-preview")
 			.css({
-				"background-color": "#5CC2ED"
+				"background-color": "#f2c641"
 			})
 		.selector("edge.ui-cytoscape-edgehandles-preview")
 			.css({
-				"line-color": "#5CC2ED"
+				"line-color": "#d1280e"
 			})
 		.selector("node.ui-cytoscape-edgehandles-preview, node.intermediate")
 			.css({

@@ -166,12 +166,12 @@
       ]
      ]
     };
-        var style_map = {"p": "border: solid gray 1px; margin: 2px; padding: 2px; background-color: #FFFFFF;",
-                       "div": "border: dashed green 1px; padding: 2px; width: 600px; background-color: #FFFFFF;",
-                       "ul": "border: solid yellow 1px; margin: 2px; padding: 2px 2px 2px 20px; background-color: #FFFFFF;",
-                       "li": "border: solid blue 1px; margin: 2px; padding: 2px; background-color: #FFFFFF;",
-                       "h1": "border: solid red 1px; margin: 2px; padding: 6px; background-color: #FFFFFF;",
-                       "h2": "border: solid red 1px; margin: 2px; padding: 4px; background-color: #FFFFFF;"};
+        var style_map = {"p": "border: solid #f2dc93 1px; margin: 2px; padding: 2px; background-color: #FFFFFF;",
+                       "div": "border: dashed #f2dc93 1px; padding: 2px; width: 600px; background-color: #FFFFFF;",
+                       "ul": "border: solid #f2dc93 1px; margin: 2px; padding: 2px 2px 2px 20px; background-color: #FFFFFF;",
+                       "li": "border: solid #f2dc93 1px; margin: 2px; padding: 2px; background-color: #FFFFFF;",
+                       "h1": "border: solid #f2dc93 1px; margin: 2px; padding: 6px; background-color: #FFFFFF;",
+                       "h2": "border: solid #f2dc93 1px; margin: 2px; padding: 4px; background-color: #FFFFFF;"};
         
     $.fn.stackable = function(settings) {
         
