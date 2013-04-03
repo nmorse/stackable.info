@@ -44,16 +44,13 @@ structural continuity or validity.<br/>
 <div id="demo1">
 <h2>H1 Test</h2>
 <p>paragraph1 text</p>
-): opps this text is not allowed directly inside a div... :(
 <ul><li>first</li><li>second</li><li>third</li></ul>
 <h2>H2 Test</h2>
 <p>paragraph2 testing paragraph2 testing paragraph2 testing paragraph2 
 testing paragraph2 testing paragraph2 testing paragraph2 testing 
-paragraph2 testing <b>testing (for some reason the TagGraph administrator has not included a bold tag as an acceptable tag!)</b> paragraph2 testing paragraph2 
+paragraph2 testing  paragraph2 testing paragraph2 
 testing paragraph2 testing paragraph2 testing paragraph2 testing... </p>
-<ul><p>Trouble here, to have this paragraph inside a ul tag</p> 
-and likewise trouble as well to have a "text node" inside this ul tag 
-    <li>one</li>
+<ul><li>one</li>
     <li>two
         <ul><li>a</li><li>b</li><li>sea</li></ul>
     </li>
@@ -65,27 +62,13 @@ and likewise trouble as well to have a "text node" inside this ul tag
     </li></ul>
 </div>
 <div id="stackable_control_panel"></div>
-
+<h3>Tag Graph</h3>
 <div id="graph_vis">
 </div>
+<p>(in the graph above) The Tags and connections between them are 
+used to ensure that the editor allows only "in-bounds" markup structure.</p>
 <!-- end of demo content -->
 
-    <div class="row">
-      <div class="span3">
-        <div id="ui_mode_1" class="btn-group ui_mode" data-toggle="buttons-radio">
-          <button id="save" type="button" class="btn btn-primary">Save</button>
-          <button id="load" type="button" class="btn btn-primary">Load</button>
-          <button id="hsare" type="button" class="btn btn-primary">Share</button>
-        </div>
-      </div>
-      <div class="span3">
-        <div id="ui_mode_2" class="btn-group ui_mode" data-toggle="buttons-radio">
-          <button id="edit" type="button" class="btn btn-primary active">Edit</button>
-          <button id="run" type="button" class="btn btn-primary">Run</button>
-        </div>
-      </div>
-    </div>
-</div>
 <h2 class="topic configuration">Configuration</h1>
 <p class="topic">The way it works can be configured through a graph of 
 tags. The tag graph maps out all allowable combinations of nested tags. 
