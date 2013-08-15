@@ -2,8 +2,8 @@ Stackable.info
 ==============
 
 Stackable.info is a web based content editor utility, that is devoted to the importance of well structured content.
-Most editor utilities are focused on "appearance" to the detriment of sensible structure (i.e. whatever it takes to make it look
-good). 
+Most editor utilities are focused on "appearance" to the detriment of sensibly structure (i.e. whatever it takes to make it look
+good). Stackable.info ensures that edited content stays in the well formed realm.
 
 Objectives are to allow an admin to enforce markup structure on content, 
 and give editors the freedom and ease to create any content that is within that 
