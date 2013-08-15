@@ -15,7 +15,7 @@ to achieve the appearance of well structured content.
 
 The Tact that Stackable.info takes is to be upfront with the editor by showing them their content's structure, and 
 enable them to easily create "in-bounds" content. Stackable.info champions a separation of "style," from "structure" 
-to make content editing rational activity. 
+to make the process of "content editing," a rational activity. 
 
 A Graph of Tag Structure
 ------------------------
