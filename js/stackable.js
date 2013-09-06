@@ -42,8 +42,8 @@
         if (config.logging.status == 'on') {
             $log_element = $("#"+config.logging.dom_element_id);
         }
-        
-        g.load(settings.tag_graph);
+        //tag_graph = config.tag_graph;
+        g.load(config.tag_graph);
         
         this.each(function() {
             var tag = this.nodeName.toLowerCase();

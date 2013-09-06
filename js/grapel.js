@@ -6,6 +6,24 @@
   var g = {};
   var graph_properties = {};
   grapel = {
+    
+    // should be for internal representation only
+    get_node_index: function(id) {
+        if (graph_properties.nodeType === "string") {
+            return _.indexOf(g.nodes, id);
+        }
+        if (graph_properties.nodeType === "object") {
+            return  _.find(_.map(g.nodes, function(node, index) { if (node[graph_properties.IdPropertyName] === id) {return index;} else {return -1;}}), 
+                function(index){ return index !== -1; });
+        }
+        return -1;
+    },
+    // should be for internal representation only
+    get_node_info: function(id) {
+      var index = this.get_node_index(id);
+      return {"id":id, "index":index};
+    },
+    // public access methods
     load: function(graph) {
         g = graph;
         // detect the properties of the graph
@@ -20,22 +38,6 @@
                }
             }
         }
-    },
-    
-    
-    get_node_index: function(id) {
-        if (graph_properties.nodeType === "string") {
-            return _.indexOf(g.nodes, id);
-        }
-        if (graph_properties.nodeType === "object") {
-            return  _.find(_.map(g.nodes, function(node, index) { if (node[graph_properties.IdPropertyName] === id) {return index;} else {return -1;}}), 
-                function(index){ return index !== -1; });
-        }
-        return -1;
-    },
-    get_node_info: function(id) {
-      var index = this.get_node_index(id);
-      return {"id":id, "index":index};
     },
     get_node: function(arg) {
       var req = _.extend({id:"start"}, arg);
