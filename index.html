@@ -12,7 +12,170 @@
     <script type="text/javascript">
     var content = [];
     $(function () {
-        $('#demo1').stackable();
+        var tag_graph = {
+            "nodes": [
+            {
+            "id": "div",
+            "start": true,
+            "view": {
+            "position": {
+             "x": 62,
+             "y": 71
+            }
+            }
+            },
+            {
+            "id": "ul",
+            "start": true,
+            "view": {
+            "position": {
+             "x": 169,
+             "y": 113
+            }
+            }
+            },
+            {
+            "id": "ol",
+            "start": true,
+            "view": {
+            "position": {
+             "x": 189,
+             "y": 42
+            }
+            }
+            },
+            {
+            "id": "li",
+            "view": {
+            "position": {
+             "x": 332,
+             "y": 71
+            }
+            }
+            },
+            {
+            "id": "h#",
+            "start": true,
+            "view": {
+            "position": {
+             "x": 62,
+             "y": 242
+            }
+            }
+            },
+            {
+            "id": "p",
+            "start": true,
+            "view": {
+            "position": {
+             "x": 125,
+             "y": 181
+            }
+            }
+            },
+            {
+            "id": "text",
+            "view": {
+            "position": {
+             "x": 332,
+             "y": 242
+            }
+            }
+            },
+            {
+            "id": "em",
+            "view": {
+            "position": {
+             "x": 258,
+             "y": 181
+            }
+            }
+            }
+            ],
+            "edges": [
+            [
+            "div",
+            "h#",
+            "tag_path"
+            ],
+            [
+            "div",
+            "p",
+            "tag_path"
+            ],
+            [
+            "div",
+            "ul",
+            "tag_path"
+            ],
+            [
+            "div",
+            "ol",
+            "tag_path"
+            ],
+            [
+            "div",
+            "div",
+            "tag_path"
+            ],
+            [
+            "h#",
+            "text",
+            "tag_path"
+            ],
+            [
+            "p",
+            "text",
+            "tag_path"
+            ],
+            [
+            "ul",
+            "li",
+            "tag_path"
+            ],
+            [
+            "ol",
+            "li",
+            "tag_path"
+            ],
+            [
+            "li",
+            "p",
+            "tag_path"
+            ],
+            [
+            "li",
+            "ul",
+            "tag_path"
+            ],
+            [
+            "li",
+            "ol",
+            "tag_path"
+            ],
+            [
+            "li",
+            "text",
+            "tag_path"
+            ],
+            [
+            "li",
+            "em",
+            "tag_path"
+            ],
+            [
+            "p",
+            "em",
+            "tag_path"
+            ],
+            [
+            "em",
+            "text",
+            "tag_path"
+            ]
+            ]
+        };
+        $('#demo1').stackable({"tag_graph":tag_graph});
     });
     </script>
     <script src="js/cyto/demo.js"></script>
