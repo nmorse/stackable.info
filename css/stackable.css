@@ -5,3 +5,12 @@
     border: 1px solid #ddd;
     margin: 1em 0;
 }
+
+#stackable_control_panel {
+    position: absolute; 
+    top: 65px; 
+    left: 836.484375px; 
+    width: 350px; 
+    display: block;
+    background-color: silver;
+}

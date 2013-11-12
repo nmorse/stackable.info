@@ -1,8 +1,8 @@
 
-(function($, g){
+;(function($, g){
     var config = {"logging":{"status":"off"}};
     var $log_element = null;
-    var current_parse_root = null;
+    var root = null;
     var tag_graph = {
             "nodes": [
             {
@@ -29,14 +29,14 @@
             ["div", "p", "tag_path"
             ]]};
         var style_map = {"p": "border: solid #f2dc93 1px; margin: 2px; padding: 2px; background-color: #FFFFFF;",
-                       "div": "border: dashed #f2dc93 1px; padding: 2px; width: 600px; background-color: #FFFFFF;",
+                       "div": "border: dashed #f2dc93 1px; padding: 2px; background-color: #FFFFFF;",
                        "ul": "border: solid #f2dc93 1px; margin: 2px; padding: 2px 2px 2px 20px; background-color: #FFFFFF;",
                        "li": "border: solid #f2dc93 1px; margin: 2px; padding: 2px; background-color: #FFFFFF;",
                        "h1": "border: solid #f2dc93 1px; margin: 2px; padding: 6px; background-color: #FFFFFF;",
                        "h2": "border: solid #f2dc93 1px; margin: 2px; padding: 4px; background-color: #FFFFFF;"};
         
     $.fn.stackable = function(settings) {
-        
+        root = this;
         if (settings) {$.extend(true, config, settings);}
         if (config.stacks || typeof config.stacks == 'array') {}
         if (config.logging.status == 'on') {
@@ -60,7 +60,6 @@
     }
     
     function parse(it, tg, tg_path) {
-        current_parse_root = it;
         if (tg_path.length > 0 || g.get_node({id:tg}).start) {
             parse_aux(it, tg, tg_path);
         }
@@ -143,15 +142,15 @@
                             if (o !== 'h#' || o !== 'text') {
                                 $('#add_'+o+'_above').on('click', function() {
                                     var tag = $(this).data("tag");
-                                    ele.before($('<'+tag+'/>').text(" "));
+                                    ele.before($('<'+tag+' contenteditable="true"/>').text(" "));
                                     $('#stackable_control_panel').hide();
-                                    $('#demo1').stackable();
+                                    $(root).stackable();
                                 });
                                 $('#add_'+o+'_below').on('click', function() {
                                     var tag = $(this).data("tag");
-                                    ele.after($('<'+tag+'/>').text(" "));
+                                    ele.after($('<'+tag+' contenteditable="true"/>').text(" "));
                                     $('#stackable_control_panel').hide();
-                                    $('#demo1').stackable();
+                                    $(root).stackable();
                                 });
                             }
                         });
@@ -159,9 +158,9 @@
                             if (o !== 'h#') {
                                 $('#add_'+o+'_in').on('click', function() {
                                     var tag = $(this).data("tag");
-                                    ele.prepend($('<'+tag+'/>').text(" "));
+                                    ele.prepend($('<'+tag+' contenteditable="true"/>').text(" "));
                                     $('#stackable_control_panel').hide();
-                                    $('#demo1').stackable();
+                                    $(root).stackable();
                                 });
                             }
                         });
