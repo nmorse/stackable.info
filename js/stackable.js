@@ -29,7 +29,7 @@
             ["div", "p", "tag_path"
             ]]};
         var style_map = {"p": "border: solid #f2dc93 1px; margin: 2px; padding: 2px; background-color: #FFFFFF;",
-                       "div": "border: dashed #f2dc93 1px; padding: 2px; background-color: #FFFFFF;",
+                       "div": "border: dashed #f2dc93 1px; margin: 2px; padding: 2px; background-color: #FFFFFF;",
                        "ul": "border: solid #f2dc93 1px; margin: 2px; padding: 2px 2px 2px 20px; background-color: #FFFFFF;",
                        "li": "border: solid #f2dc93 1px; margin: 2px; padding: 2px; background-color: #FFFFFF;",
                        "h1": "border: solid #f2dc93 1px; margin: 2px; padding: 6px; background-color: #FFFFFF;",
@@ -89,7 +89,7 @@
                     // this might just be white space?, but otherwise it is not in the graph
                     if (!is_whitespace($(this).text())) {
                         alert(tg+" "+this.nodeName);
-                        $(this).text($(this).text());
+                        //$(this).text($(this).text());
                         //$(this).remove();
                         
                         // //$(this).wrap('<span style="color: red;"></span>');
@@ -142,13 +142,21 @@
                             if (o !== 'h#' || o !== 'text') {
                                 $('#add_'+o+'_above').on('click', function() {
                                     var tag = $(this).data("tag");
-                                    ele.before($('<'+tag+' contenteditable="true"/>').text(" "));
+                                    var node = g.get_node({"id":tag}), 
+                                        poss = g.get_linked_nodes(node, "tag_path")
+                                        ce_string = "";
+                                    if (_.indexOf(poss, "text") >= 0) { ce_string = ' contenteditable="true"'; }
+                                    ele.before($('<'+tag+ce_string+'/>').text(" "));
                                     $('#stackable_control_panel').hide();
                                     $(root).stackable();
                                 });
                                 $('#add_'+o+'_below').on('click', function() {
                                     var tag = $(this).data("tag");
-                                    ele.after($('<'+tag+' contenteditable="true"/>').text(" "));
+                                    var node = g.get_node({"id":tag}), 
+                                        poss = g.get_linked_nodes(node, "tag_path")
+                                        ce_string = "";
+                                    if (_.indexOf(poss, "text") >= 0) { ce_string = ' contenteditable="true"'; }
+                                    ele.after($('<'+tag+ce_string+'/>').text(" "));
                                     $('#stackable_control_panel').hide();
                                     $(root).stackable();
                                 });
@@ -158,7 +166,11 @@
                             if (o !== 'h#') {
                                 $('#add_'+o+'_in').on('click', function() {
                                     var tag = $(this).data("tag");
-                                    ele.prepend($('<'+tag+' contenteditable="true"/>').text(" "));
+                                    var node = g.get_node({"id":tag}), 
+                                        poss = g.get_linked_nodes(node, "tag_path")
+                                        ce_string = "";
+                                    if (_.indexOf(poss, "text") >= 0) { ce_string = ' contenteditable="true"'; }
+                                    ele.prepend($('<'+tag+ce_string+'/>').text(" "));
                                     $('#stackable_control_panel').hide();
                                     $(root).stackable();
                                 });
@@ -174,9 +186,9 @@
                     parse(this, lookup_tag, tg_p);
                 }
                 else  {
-                    alert(tg+" to Tag "+this.nodeName);
-                    $(this).text($(this).text());
-                    $(this).wrap('<span style="color: red;"></span>');
+                    alert("No path from Tag " + tg + " to Tag "+this.nodeName);
+                    //$(this).text($(this).text());
+                    //$(this).wrap('<span style="color: red;"></span>');
                     //$(this).remove();
                     
                     // //$(this).wrap('<span style="color: red;"></span>');
