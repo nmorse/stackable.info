@@ -62,7 +62,7 @@
         $('#demo2').stackable({"tag_graph":tag_graph});
         $('#compare').on('click', function() {
             
-            comparable_diff($('#demo0'), $('#demo2'), $('#demo1'));
+            comparable_diff($('#demo0'), $('#demo1'), $('#demox'));
         });
     });
     </script>
@@ -79,18 +79,19 @@
 <div class="row-fluid">
 <div class="span4">
   <div id="demo0">
-    <p contenteditable="true">paragraph11 text</p>
-    <p contenteditable="true"> more text</p>
+    <p a="a" b="b" z="z">paragraph11 text</p>
+    <p > more text</p>
   </div>
 </div>
 <div class="span4">
   <div id="demo1">
-    
+    <p a="a" z="z">paragraph11 text</p>
+    <p > more text</p>    
   </div>
 </div>
 <div class="span4">
   <div id="demo2">
-    <p contenteditable="true">paragraph2 text</p>
+    <p contenteditable="true" a="a" z="z">paragraph2 text</p>
     <p contenteditable="true" class="some"> more text</p>
   </div>
 </div>
