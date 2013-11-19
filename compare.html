@@ -62,7 +62,11 @@
         $('#demo2').stackable({"tag_graph":tag_graph});
         $('#compare').on('click', function() {
             
-            comparable_diff($('#demo0'), $('#demo1'), $('#demox'));
+            comparable_diff($('#demo0').children(), $('#demo1').children(), $('#demox'));
+            comparable_diff($('#demo10').children(), $('#demo11').children(), $('#demox'));
+            comparable_diff($('#demo20').children(), $('#demo21').children(), $('#demox'));
+            comparable_diff($('#demo30').children(), $('#demo31').children(), $('#demox'));
+            comparable_diff($('#demo40').children(), $('#demo41').children(), $('#demox'));
         });
     });
     </script>
@@ -79,13 +83,13 @@
 <div class="row-fluid">
 <div class="span4">
   <div id="demo0">
-    <p contenteditable="true" d="d"  z="z">paragraph11 text</p>
+    <p contenteditable="true" d="d1" f="f" z="z">d="d" f="f" z="z"</p>
     <p contenteditable="true" > more text</p>
   </div>
 </div>
 <div class="span4">
   <div id="demo1">
-    <p contenteditable="true" d="d" e="e" z="z">paragraph12 text</p>
+    <p contenteditable="true" d="d2" e="e" z="z">d="d" e="e" z="z"</p>
     <p contenteditable="true" > more text</p>    
   </div>
 </div>
@@ -96,6 +100,68 @@
   </div>
 </div>
 </div>
+
+<div class="row-fluid">
+    <div class="span4">
+      <div id="demo10">
+        <p contenteditable="true" d="d" e="e" z="z1">d="d" e="e" z="z"</p>
+        <p contenteditable="true" > more text</p>
+      </div>
+    </div>
+    <div class="span4">
+      <div id="demo11">
+        <p contenteditable="true" d="d" f="f" z="z2">d="d" f="f" z="z"</p>
+        <p contenteditable="true" > more text</p>    
+      </div>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span4">
+      <div id="demo20">
+        <p contenteditable="true" d="d1" z="z">d="d" z="z"</p>
+        <p contenteditable="true" > more text</p>
+      </div>
+    </div>
+    <div class="span4">
+      <div id="demo21">
+        <p contenteditable="true" d="d2" e="e" z="z">d="d" e="e" z="z"</p>
+        <p contenteditable="true" > more text</p>    
+      </div>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span4">
+      <div id="demo30">
+        <p contenteditable="true" d="d" f="f" z="z1">d="d" f="f" z="z"</p>
+        <p contenteditable="true" > more text</p>
+      </div>
+    </div>
+    <div class="span4">
+      <div id="demo31">
+        <p contenteditable="true" d="d" z="z2">d="d" z="z"</p>
+        <p contenteditable="true" > more text</p>    
+      </div>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span4">
+      <div id="demo40">
+        <p contenteditable="true" d="d1" f="f" z="z">d="d" f="f" z="z"</p>
+        <p contenteditable="true" > more text</p>
+      </div>
+    </div>
+    <div class="span4">
+      <div id="demo41">
+        <p contenteditable="true" d="d2" y="y">d="d" y="y"</p>
+        <p contenteditable="true" > more text</p>    
+      </div>
+    </div>
+</div>
+
+
 </div>
 <button id="compare">compare</button>
 <div id="stackable_control_panel">
